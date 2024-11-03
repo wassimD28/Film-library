@@ -1,0 +1,61 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Acteur{% endblock %}
+
+{% block body %}
+<div class="w-full min-h-screen bg-gray-900 text-gray-100 flex flex-col md:flex-row">
+    <div class="w-full md:w-1/2 p-6">
+        {% if acteur.image %}
+            <img src="{{ asset("uploads/images/" ~ acteur.image) }}" alt="{{ acteur.nom }}" class="w-full h-auto mb-6 rounded-lg">
+        {% else %}
+            <span class="text-gray-500">No image</span>
+        {% endif %}
+    </div>
+    <div class="w-full md:w-1/2 py-6 px-8 border-l border-gray-700">
+        <h1 class="text-4xl font-bold text-admin-text mb-8">Acteur</h1>
+
+        <table class="min-w-full bg-gray-800 text-admin-text mb-8">
+            <tbody class="border border-admin-primary">
+                <tr class="border border-admin-primary">
+                    <th class="py-2 px-4">Id</th>
+                    <td class="py-2 px-4">{{ acteur.id }}</td>
+                </tr>
+                <tr class="border border-admin-primary">
+                    <th class="py-2 px-4">Nom</th>
+                    <td class="py-2 px-4">{{ acteur.nom }}</td>
+                </tr>
+                <tr>
+                    <th class="py-2 px-4">Pronom</th>
+                    <td class="py-2 px-4">{{ acteur.pronom }}</td>
+                </tr>
+                <tr class="border border-admin-primary">
+                    <th class="py-2 px-4">DateNaiss</th>
+                    <td class="py-2 px-4">{{ acteur.dateNaiss ? acteur.dateNaiss|date('Y-m-d') : '' }}</td>
+                </tr class="border border-admin-primary">
+                <tr>
+                    <th class="py-2 px-4">Sexe</th>
+                    <td class="py-2 px-4">{{ acteur.sexe ? 'male' : 'female' }}</td>
+                </tr>
+                <tr class="border border-admin-primary">
+                    <th class="py-2 px-4">Nationality</th>
+                    <td class="py-2 px-4">{{ acteur.nationality }}</td>
+                </tr>
+                <tr>
+                    <th class="py-2 px-4">CreatedAt</th>
+                    <td class="py-2 px-4">{{ acteur.createdAt ? acteur.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+                </tr>
+                <tr class="border border-admin-primary">
+                    <th class="py-2 px-4">UpdatedAt</th>
+                    <td class="py-2 px-4">{{ acteur.updatedAt ? acteur.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <a href="{{ path('app_acteur_index') }}" class="inline-block mb-4 text-admin-text bg-admin-bg hover:bg-admin-text hover:text-admin-bg border border-admin-text px-4 py-2 rounded-lg mt-2 ease-in-out duration-200">Back to List</a>
+
+        <a href="{{ path('app_acteur_edit', {'id': acteur.id}) }}" class="inline-block mb-4 text-admin-bg bg-admin-primary hover:bg-admin-bg hover:text-admin-primary border border-admin-primary px-4 py-2 rounded-lg mt-2 ease-in-out duration-200">Edit</a>
+
+        {{ include('acteur/_delete_form.html.twig') }}
+    </div>
+</div>
+{% endblock %}

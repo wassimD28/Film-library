@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Acteur{% endblock %}
+
+{% block body %}
+<div class="w-4/5 m-auto bg-gray-900 text-admin-text min-h-screen p-6">
+    <h1 class="text-4xl font-bold mb-8">Edit Acteur</h1>
+
+    {{ include('acteur/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_acteur_index') }}" class="inline-block mb-4 text-admin-text bg-admin-bg hover:bg-admin-text hover:text-admin-bg border border-admin-text px-4 py-2 rounded-lg mt-2 ease-in-out duration-200">Back to List</a>
+    <div class="w-full flex justify-center">
+        {{ include('acteur/_delete_form.html.twig') }}
+    </div>
+</div>
+{% endblock %}

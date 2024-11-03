@@ -1,0 +1,62 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Film{% endblock %}
+
+{% block body %}
+<div class="bg-gray-900 text-gray-100 min-h-screen p-6">
+    <div class="flex items-start mb-6 bg-myColor-semibg3 rounded-md p-3">
+        <img src="{{ asset("uploads/images/" ~ film.couverture) }}" alt="{{ film.titre }}" class="w-48 h-auto rounded-lg shadow-lg mr-6">
+        <div>
+            <h2 class="text-6xl font-bold mb-2 text-myColor-text first-letter:uppercase">{{ film.titre }}</h2>
+            <div class="my-3 flex flex-row gap-2">
+                <p class="text-myColor-semibg bg-myColor-secondary rounded-2xl px-3 py-1 w-fit font-semibold">{{ film.getCategorie.getDesignCategorie }}</p>
+                <p class="bg-myColor-semibg text-myColor-secondary rounded-2xl px-3 py-1 w-fit font-semibold border border-myColor-secondary">{{ film.dateSortie ? film.dateSortie|date('Y') : '' }}</p>
+                <div class=" text-myColor-bg rounded-2xl px-3 py-1 w-fit font-semibold bg-myColor-yellow flex gap-1 items-center">{{ film.rating ? film.rating : 0 }} <i class="text-myColor-bg  fa-solid fa-star"></i></div>
+                <div class=" text-myColor-text rounded-2xl px-3 py-1 w-fit font-semibold bg-myColor-semibg3 border border-myColor-text flex gap-1 items-center">{{ film.views ? film.views : 0 }} <i class="text-myColor-text  fa-solid fa-eye"></i></div>
+            </div>
+            <p class="text-myColor-text">{{ film.description }}</p>
+        </div>
+    </div>
+
+    <div class=" w-full flex justify-center">
+        {% if film.trailer %}
+            <iframe width="560" height="315" src="{{ film.trailer }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        {% else %}
+            <p class="text-myColor-secondary bg-myColor-semibg2 rounded-md py-1 px-3">There is no trailer !</p>
+        {% endif %}
+    </div>
+
+    <a href="{{ path('app_user_films_index') }}" class="inline-block mb-4 text-myColor-text bg-myColor-bg hover:bg-myColor-text hover:text-myColor-bg border border-myColor-text px-4 py-2 rounded-lg mt-2 ease-in-out duration-200">
+        Back to films
+    </a>
+    {% if film.isDisponible %}
+        {% if bought %}
+            <a href="{{ path('app_EmpruntUser_retour', {'id': empruntId}) }}" class="inline-block mb-4 ml-2 text-myColor-accent bg-myColor-semibg2 hover:bg-purple-800 border border-purple-700 px-4 py-2 rounded-lg
+            hover:bg-myColor-accent hover:text-myColor-bg ease-in-out duration-200 font-semibold">
+                Return
+            </a> 
+        {% elseif returned %}
+            <a href="{{ path('app_EmpruntUser_new', {'id': film.id }) }}" class="inline-block mb-4 ml-2 text-myColor-accent bg-myColor-semibg2 hover:bg-purple-800 border border-purple-700 px-4 py-2 rounded-lg hover:bg-myColor-accent hover:text-myColor-bg ease-in-out duration-200 font-semibold">
+                returned, want to buy it again ?
+            </a> 
+        {% else %}
+            <a href="{{ path('app_EmpruntUser_new', {'id': film.id }) }}" class="inline-block mb-4 ml-2 text-myColor-accent bg-myColor-semibg2 hover:bg-purple-800 border border-purple-700 px-4 py-2 rounded-lg
+            hover:bg-myColor-accent hover:text-myColor-bg ease-in-out duration-200 font-semibold">
+                Buy
+            </a> 
+        {% endif %}
+    {% else %}
+        <p class="bg-myColor-semibg2 text-myColor-secondary px-3 py-2 rounded-md w-fit">Non diponible</p>
+    {% endif %}
+    
+    
+    <div class="w-full p-3">
+        <h2 class="text-4xl font-bold mb-2 text-myColor-text first-letter:uppercase">Acteurs</h2>
+        <div class="flex flex-row gap-3 w-full">
+            {% for actor in film.getActeurs %}
+                {{ include("inc/user/actorCard.html.twig") }}
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}

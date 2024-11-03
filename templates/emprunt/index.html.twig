@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Acteur index{% endblock %}
+
+{% block body %}
+{{ include("inc/admin/navbar.html.twig") }}
+<div class="flex h-screen w-screen flex-row items-start justify-center gap-x-[15px] bg-admin-bg">
+        <section class="absolute right-5 pt-[70px]">
+            {{ include("inc/admin/filter.html.twig") }}
+            <div class="flex w-[1020px] px-4 flex-col items-start justify-center overflow-x-hidden">
+                <table class="min-w-full bg-admin-semibg text-admin-text mb-8 border border-admin-primary">
+                    <thead>
+                        <tr>
+                            <th class="py-2 px-2 text-start border-b border-admin-primary">Id</th>
+                            <th class="py-2 px-2 text-start border-b border-admin-primary">DhEmprunt</th>
+                            <th class="py-2 px-2 text-start border-b border-admin-primary">DhRetour</th>
+                            <th class="py-2 px-2 text-start border-b border-admin-primary">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for emprunt in emprunts %}
+                            <tr class="hover:bg-admin-semibg2">
+                                <td class="py-2 px-4 border-b border-admin-primary">{{ emprunt.id }}</td>
+                                <td class="py-2 px-4 border-b border-admin-primary">{{ emprunt.dhEmprunt ? emprunt.dhEmprunt|date('Y-m-d H:i:s') : '' }}</td>
+                                <td class="py-2 px-4 border-b border-admin-primary">{{ emprunt.dhRetour ? emprunt.dhRetour|date('Y-m-d H:i:s') : '' }}</td>
+                                <td class="py-2 px-4 border-b flex flex-row gap-2 border-admin-primary">
+                                    <a href="{{ path('app_emprunt_show', {'id': emprunt.id}) }}" class="inline-block mb-4 text-admin-bg bg-admin-primary hover:bg-admin-bg hover:text-admin-primary border border-admin-primary px-4 py-2 rounded-lg mt-2 ease-in-out duration-200">show</a>
+                                    <a href="{{ path('app_emprunt_edit', {'id': emprunt.id}) }}" class="inline-block mb-4 text-admin-bg bg-admin-primary hover:bg-admin-bg hover:text-admin-primary border border-admin-primary px-4 py-2 rounded-lg mt-2 ease-in-out duration-200">edit</a>
+                                </td>
+                            </tr>
+                        {% else %}
+                            <tr>
+                                <td colspan="4" class="py-2 px-4 border-b border-admin-primary text-center">No records found</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+
+                <a href="{{ path('app_emprunt_new') }}" class="inline-block mb-4 text-admin-bg bg-admin-accent hover:bg-admin-bg hover:text-admin-accent border border-admin-accent px-4 py-2 rounded-lg mt-2 ease-in-out duration-200">Create new</a>
+
+            </div>
+        </section>
+    </div>
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Film{% endblock %}
+
+{% block body %}
+    <h1 class="text-admin-text text-4xl font-bold">Create new Film</h1>
+
+    {{ include('film/_form.html.twig') }}
+
+    <a href="{{ path('app_film_index') }}" class="inline-block mb-4 text-admin-text bg-admin-bg hover:bg-admin-text hover:text-admin-bg border border-admin-text px-4 py-2 rounded-lg mt-2 ease-in-out duration-200">
+        Back to List
+    </a>
+{% endblock %}

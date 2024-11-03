@@ -1,0 +1,6 @@
+# .symfony.local.yaml
+workers:
+  # ...
+
+  tailwind:
+    cmd: ["php", "bin/console", "tailwind:build", "--watch"]

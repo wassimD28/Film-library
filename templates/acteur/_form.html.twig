@@ -1,0 +1,33 @@
+{{ form_start(form, {'attr': {'class': 'space-y-4'}}) }}
+    <div class="mb-4">
+        {{ form_label(form.nom, null, {'label_attr': {'class': 'block text-admin-text text-sm font-bold mb-2'}}) }}
+        {{ form_widget(form.nom, {'attr': {'class': 'w-full px-3 py-2 border rounded-lg bg-admin-bg text-admin-text border-admin-semibg2'}}) }}
+    </div>
+    <div class="mb-4">
+        {{ form_label(form.pronom, null, {'label_attr': {'class': 'block text-admin-text text-sm font-bold mb-2'}}) }}
+        {{ form_widget(form.pronom, {'attr': {'class': 'w-full px-3 py-2 border rounded-lg bg-admin-bg text-admin-text border-admin-semibg2'}}) }}
+    </div>
+    <div class="mb-4">
+        {{ form_label(form.dateNaiss, null, {'label_attr': {'class': 'block text-admin-text text-sm font-bold mb-2'}}) }}
+        {{ form_widget(form.dateNaiss, {'attr': {'class': 'w-full px-3 py-2 border rounded-lg bg-admin-bg text-admin-text border-admin-semibg2'}}) }}
+    </div>
+    <div class="mb-4">
+        {{ form_label(form.sexe, null, {'label_attr': {'class': 'block text-admin-text text-sm font-bold mb-2'}}) }}
+        {{ form_widget(form.sexe, {'attr': {'class': 'w-full px-3 py-2 border rounded-lg bg-admin-bg text-admin-text border-admin-semibg2'}}) }}
+    </div>
+    <div class="mb-4">
+        {{ form_label(form.nationality, null, {'label_attr': {'class': 'block text-admin-text text-sm font-bold mb-2'}}) }}
+        {{ form_widget(form.nationality, {'attr': {'class': 'w-full px-3 py-2 border rounded-lg bg-admin-bg text-admin-text border-admin-semibg2'}}) }}
+    </div>
+    <div class="mb-4">
+        {{ form_label(form.image, null, {'label_attr': {'class': 'block text-admin-text text-sm font-bold mb-2'}}) }}
+        {{ form_widget(form.image, {'attr': {'class': 'w-full px-3 py-2 border rounded-lg bg-admin-bg text-admin-text border-admin-semibg2'}}) }}
+    </div>
+    <div class="mb-4">
+        {{ form_label(form.films, null, {'label_attr': {'class': 'block text-admin-text text-sm font-bold mb-2'}}) }}
+        {{ form_widget(form.films, {'attr': {'class': 'w-full px-3 py-2 border rounded-lg bg-admin-bg text-admin-text border-admin-semibg2'}}) }}
+    </div>
+    <button type="submit" class="bg-admin-primary hover:bg-admin-secondary text-admin-text font-medium py-2 px-4 rounded-lg">
+        {{ button_label|default('Save') }}
+    </button>
+{{ form_end(form) }}

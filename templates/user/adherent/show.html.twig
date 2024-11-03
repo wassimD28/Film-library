@@ -1,0 +1,59 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Adherent{% endblock %}
+
+{% block body %}
+<div class="w-4/5 m-auto bg-gray-900 text-gray-100 p-6 min-h-screen">
+    <h1 class="text-4xl font-bold mb-8">Adherent</h1>
+
+    <div class="overflow-x-auto">
+        <table class="min-w-full bg-gray-800 border border-gray-700 rounded-lg">
+            <tbody>
+                <tr class="border-b border-gray-700">
+                    <th class="px-4 py-2 text-left">Id</th>
+                    <td class="px-4 py-2">{{ adherent.id }}</td>
+                </tr>
+                <tr class="border-b border-gray-700">
+                    <th class="px-4 py-2 text-left">Nom</th>
+                    <td class="px-4 py-2">{{ adherent.nom }}</td>
+                </tr>
+                <tr class="border-b border-gray-700">
+                    <th class="px-4 py-2 text-left">Prenom</th>
+                    <td class="px-4 py-2">{{ adherent.prenom }}</td>
+                </tr>
+                <tr class="border-b border-gray-700">
+                    <th class="px-4 py-2 text-left">DateNaiss</th>
+                    <td class="px-4 py-2">{{ adherent.dateNaiss ? adherent.dateNaiss|date('Y-m-d') : '' }}</td>
+                </tr>
+                <tr class="border-b border-gray-700">
+                    <th class="px-4 py-2 text-left">Sexe</th>
+                    <td class="px-4 py-2">{{ adherent.sexe ? 'Yes' : 'No' }}</td>
+                </tr>
+                <tr class="border-b border-gray-700">
+                    <th class="px-4 py-2 text-left">Cin</th>
+                    <td class="px-4 py-2">{{ adherent.cin }}</td>
+                </tr>
+                <tr class="border-b border-gray-700">
+                    <th class="px-4 py-2 text-left">Tel</th>
+                    <td class="px-4 py-2">{{ adherent.tel }}</td>
+                </tr>
+                <tr class="border-b border-gray-700">
+                    <th class="px-4 py-2 text-left">Adresse</th>
+                    <td class="px-4 py-2">{{ adherent.adresse }}</td>
+                </tr>
+                <tr class="border-b border-gray-700">
+                    <th class="px-4 py-2 text-left">CreatedAt</th>
+                    <td class="px-4 py-2">{{ adherent.createdAt ? adherent.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+                </tr>
+                <tr class="border-b border-gray-700">
+                    <th class="px-4 py-2 text-left">UpdatedAt</th>
+                    <td class="px-4 py-2">{{ adherent.updatedAt ? adherent.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <a href="{{ path('app_adherent_index') }}" class="inline-block mb-4 text-white bg-gray-800 hover:bg-gray-700 border border-gray-700 px-4 py-2 rounded-lg mt-2">Back to List</a>
+    <a href="{{ path('app_adherent_edit', {'id': adherent.id}) }}" class="inline-block mb-4 ml-2 text-white bg-blue-700 hover:bg-blue-800 border border-blue-700 px-4 py-2 rounded-lg">Edit</a>
+</div>
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Adherent{% endblock %}
+
+{% block body %}
+    <div class="w-full min-h-screen bg-gray-900 text-gray-100 p-6">
+        <h1 class="text-4xl font-bold mb-8">Edit Adherent</h1>
+
+        {{ include('adherent/_form.html.twig', {'button_label': 'Update'}) }}
+
+        <a href="{{ path('app_adherent_index') }}" class="inline-block mb-4 text-white bg-gray-700 hover:bg-gray-600 border border-gray-700 px-4 py-2 rounded-lg mt-2">Back to List</a>
+    </div>
+{% endblock %}
+

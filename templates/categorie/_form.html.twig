@@ -1,0 +1,11 @@
+
+{{ form_start(form) }}
+    <div class="mb-4">
+        {{ form_label(form.designCategorie, null, {'label_attr': {'class': 'block mb-2 text-gray-300 text-sm font-bolmb-2'}}) }}
+        {{ form_widget(form.designCategorie, {'attr': {'class': 'w-full px-3 py-2 border rounded-lg bg-admin-semibg2 text-white border-gray-700'}}) }}
+    </div>
+    <button class="inline-block mb-4 text-admin-primary bg-admin-semibg2 hover:bg-admin-primary hover:text-admin-semibg border border-admin-primary px-4 py-2 rounded-lg mt-2 ease-in-out duration-200">
+        {{ button_label|default('Save') }}
+    </button>
+{{ form_end(form) }}
+

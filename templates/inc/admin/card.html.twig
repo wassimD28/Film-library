@@ -1,0 +1,23 @@
+<a class="CARD relative h-[230px] w-[163px] cursor-pointer overflow-hidden rounded-md"
+    onmouseover="cardOnHover(event)"
+    onmouseout="cardOnHover(event)"
+    href="{{ path('app_film_show', {'id': film.id}) }}">
+    <img src="{{ asset('uploads/images/' ~ film.couverture) }}"
+         alt="{{ film.couverture }}"
+         class="absolute h-full w-full rounded-md" />
+    <div class="GRADIENT absolute bottom-0 left-0 h-full w-full bg-gradient-to-t from-myColor-bg opacity-0 duration-300 ease-in-out"></div>
+    <div class="INFO absolute bottom-[-60px] left-2 opacity-0 duration-300 ease-in-out">
+        <h1 class="text-xl font-semibold text-myColor-text">{{ film.titre }}</h1>
+        <h4 class="text-myColor-primary">{{ film.dateSortie | date('Y') }}</h4>
+    </div>
+    <div class="absolute right-[10px] top-[10px] rounded-xl bg-myColor-accent px-2 py-1 text-xs font-semibold text-myColor-semibg opacity-90">
+        {{ film.getCategorie.getDesignCategorie }}
+    </div>
+    <div class="absolute right-[10px] top-[38px] rounded-xl bg-myColor-secondary px-2 py-1 text-xs font-semibold text-myColor-text opacity-80 flex gap-1 items-center">
+        {{ film.views ? film.views : 0  }}<i class="text-myColor-text  fa-solid fa-eye"></i>
+    </div>
+    <div class="absolute right-[10px] top-[68px] rounded-xl bg-myColor-yellow px-2 py-1 text-xs font-semibold text-myColor-bg opacity-80 flex gap-1 items-center">
+        {{ film.rating ? film.rating : 0  }}<i class="text-myColor-bg  fa-solid fa-star"></i>
+    </div>
+</a>
+<script src="{{ asset('js/card.js') }}"></script>

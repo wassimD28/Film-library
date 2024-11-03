@@ -1,0 +1,21 @@
+{{ form_start(form, {'attr': {'class': 'space-y-4'}}) }}
+    <div>
+        {{ form_label(form.dhEmprunt, null, {'label_attr': {'class': 'block text-admin-text text-sm font-bold mb-2'}}) }}
+        {{ form_widget(form.dhEmprunt, {'attr': {'class': 'w-full px-3 py-2 border rounded-lg bg-admin-semibg text-admin-text border-admin-primary'}}) }}
+    </div>
+    <div>
+        {{ form_label(form.dhRetour, null, {'label_attr': {'class': 'block text-admin-text text-sm font-bold mb-2'}}) }}
+        {{ form_widget(form.dhRetour, {'attr': {'class': 'w-full px-3 py-2 border rounded-lg bg-admin-semibg text-admin-text border-admin-primary'}}) }}
+    </div>
+    <div>
+        {{ form_label(form.film, null, {'label_attr': {'class': 'block text-admin-text text-sm font-bold mb-2'}}) }}
+        {{ form_widget(form.film, {'attr': {'class': 'w-full px-3 py-2 border rounded-lg bg-admin-semibg text-admin-text border-admin-primary'}}) }}
+    </div>
+    <div>
+        {{ form_label(form.adherent, null, {'label_attr': {'class': 'block text-admin-text text-sm font-bold mb-2'}}) }}
+        {{ form_widget(form.adherent, {'attr': {'class': 'w-full px-3 py-2 border rounded-lg bg-admin-semibg text-admin-text border-admin-primary'}}) }}
+    </div>
+    <button class="bg-admin-primary ease-in-out duration-200 hover:bg-admin-bg hover:text-admin-primary text-admin-bg font-medium py-2 px-4 rounded-lg">
+        {{ button_label|default('Save') }}
+    </button>
+{{ form_end(form) }}

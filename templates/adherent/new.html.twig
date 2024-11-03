@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Adherent{% endblock %}
+
+{% block body %}
+    <div class="w-4/5 m-auto bg-gray-900 text-admin-text min-h-screen p-6">
+        <h1 class="text-4xl font-bold mb-8">Create new Adherent</h1>
+
+        {{ include('adherent/_form.html.twig') }}
+
+        <a href="{{ path('app_adherent_index') }}" class="inline-block mb-4 text-admin-text bg-admin-bg hover:bg-admin-text hover:text-admin-bg border border-admin-text px-4 py-2 rounded-lg mt-2 ease-in-out duration-200">Back to List</a>
+    </div>
+{% endblock %}
+

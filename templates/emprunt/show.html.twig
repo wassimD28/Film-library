@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Emprunt{% endblock %}
+
+{% block body %}
+<div class="w-4/5 m-auto text-admin-text p-6 min-h-screen">
+    <h1 class="text-4xl font-bold mb-8">Emprunt</h1>
+
+    <div class="overflow-x-auto">
+        <table class="min-w-full border border-admin-primary rounded-lg">
+            <tbody>
+                <tr class="border-b border-admin-primary">
+                    <th class="px-4 py-2 text-left">Id</th>
+                    <td class="px-4 py-2">{{ emprunt.id }}</td>
+                </tr>
+                <tr class="border-b border-admin-primary">
+                    <th class="px-4 py-2 text-left">Film</th>
+                    <td class="px-4 py-2">{{ emprunt.getFilm.getId }} ( {{ emprunt.getFilm.getTitre }} )</td>
+                </tr>
+                <tr class="border-b border-admin-primary">
+                    <th class="px-4 py-2 text-left">Adherent</th>
+                    <td class="px-4 py-2">{{ emprunt.getAdherent.getId }} ( {{ emprunt.getAdherent.getNom }} {{ emprunt.getAdherent.getPrenom }} )</td>
+                </tr>
+                <tr class="border-b border-admin-primary">
+                    <th class="px-4 py-2 text-left">DhEmprunt</th>
+                    <td class="px-4 py-2">{{ emprunt.dhEmprunt ? emprunt.dhEmprunt|date('Y-m-d H:i:s') : '' }}</td>
+                </tr>
+                <tr class="border-b border-admin-primary">
+                    <th class="px-4 py-2 text-left">DhRetour</th>
+                    <td class="px-4 py-2">{{ emprunt.dhRetour ? emprunt.dhRetour|date('Y-m-d H:i:s') : '' }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <a href="{{ path('app_emprunt_index') }}" class="inline-block mb-4 text-admin-bg bg-admin-primary hover:bg-admin-bg hover:text-admin-primary border border-admin-primary px-4 py-2 rounded-lg mt-2">Back to List</a>
+    <a href="{{ path('app_emprunt_edit', {'id': emprunt.id}) }}" class="inline-block mb-4 ml-2 text-admin-bg bg-admin-primary hover:bg-admin-bg hover:text-admin-primary border border-admin-primary px-4 py-2 rounded-lg">Edit</a>
+
+    <div class="mt-4">
+        {{ include('emprunt/_delete_form.html.twig') }}
+    </div>
+</div>
+{% endblock %}

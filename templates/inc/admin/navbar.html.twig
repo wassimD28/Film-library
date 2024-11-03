@@ -1,0 +1,28 @@
+<nav aria-label="menu nav" class="bg-admin-semibg pt-2 md:pt-1 pb-1 px-1 mt-0 h-auto fixed w-full z-20 top-0">
+
+    <div class="flex flex-wrap items-center">
+        <div class="flex flex-shrink md:w-1/3 justify-center md:justify-start text-white">
+            <a href="#" aria-label="Home">
+                <span class="text-2xl pl-2 flex flex-row items-center font-bold uppercase text-admin-secondary gap-2"><img class=" h-[40px]" src="{{ asset('shared/images/watchTheMovieAdmin.png') }}" alt=""></span>
+            </a>
+        </div>
+
+        <div class="flex flex-1 md:w-1/3 justify-center md:justify-start text-white px-2">
+            <span class="relative w-full">
+                <input aria-label="search" type="search" id="search" placeholder="Search" class="w-full bg-admin-semibg2 text-admin-text transition focus:outline-none border border-myColor-semibg focus:border-admin-accent rounded py-3 px-2 pl-10 appearance-none leading-normal">
+                <div class="absolute search-icon cursor-pointer left-3 top-3">
+                    <i class="text-admin-text text-lg fa-solid fa-magnifying-glass"></i>
+                </div>
+            </span>
+        </div>
+
+        <div class="flex w-full pt-2 content-center justify-between md:w-1/3 md:justify-end">
+            <ul class="list-reset flex justify-between flex-1 md:flex-none items-center">
+                <li class="flex-1 md:flex-none md:mr-3">
+                    <a class="inline-block border border-admin-accent text-admin-accent hover:text-admin-bg hover:bg-admin-accent rounded-md ease-in-out duration-200 py-2 px-4 text-white no-underline" href="/logout">Log out from admin</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+</nav>

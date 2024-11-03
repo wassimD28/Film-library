@@ -1,0 +1,43 @@
+<div class="max-w-md mx-auto">
+    {{ form_start(form) }}
+        <div class="mb-4">
+            {{ form_label(form.titre, null, {'label_attr': {'class': 'block text-admin-text text-sm font-bold mb-2'}}) }}
+            {{ form_widget(form.titre, {'attr': {'class': 'w-full px-3 py-2 border rounded-lg bg-admin-semibg text-admin-text border-admin-primary'}}) }}
+        </div>
+        <div class="mb-4">
+            {{ form_label(form.dateSortie, null, {'label_attr': {'class': 'block text-admin-text text-sm font-bold mb-2'}}) }}
+            {{ form_widget(form.dateSortie, {'attr': {'class': 'w-full px-3 py-2 border rounded-lg bg-admin-semibg text-admin-text border-admin-primary'}}) }}
+        </div>
+        <div class="mb-4">
+            {{ form_label(form.description, null, {'label_attr': {'class': 'block text-admin-text text-sm font-bold mb-2'}}) }}
+            {{ form_widget(form.description, {'attr': {'class': 'w-full h-48 px-3 py-2 border rounded-lg bg-admin-semibg text-admin-text border-admin-primary resize-none'}}) }}
+        </div>
+        <div class="mb-4">
+            {{ form_label(form.couverture, null, {'label_attr': {'class': 'block text-admin-text text-sm font-bold mb-2'}}) }}
+            {{ form_widget(form.couverture, {'attr': {'class': 'w-full px-3 py-2 border rounded-lg bg-admin-semibg text-admin-text border-admin-primary'}}) }}
+        </div>
+        <div class="mb-4">
+            {{ form_label(form.disponible, null, {'label_attr': {'class': 'block text-admin-text text-sm font-bold mb-2'}}) }}
+            {{ form_widget(form.disponible, {'attr': {'class': 'w-full px-3 py-2 border rounded-lg bg-admin-semibg text-admin-text border-admin-primary'}}) }}
+        </div>
+        <div class="mb-4">
+            {{ form_label(form.views, null, {'label_attr': {'class': 'block text-admin-text text-sm font-bold mb-2'}}) }}
+            {{ form_widget(form.views, {'attr': {'class': 'w-full px-3 py-2 border rounded-lg bg-admin-semibg text-admin-text border-admin-primary'}}) }}
+        </div>
+        <div class="mb-4">
+            {{ form_label(form.rating, null, {'label_attr': {'class': 'block text-admin-text text-sm font-bold mb-2'}}) }}
+            {{ form_widget(form.rating, {'attr': {'class': 'w-full px-3 py-2 border rounded-lg bg-admin-semibg text-admin-text border-admin-primary'}}) }}
+        </div>
+        <div class="mb-4">
+            {{ form_label(form.trailer, null, {'label_attr': {'class': 'block text-admin-text text-sm font-bold mb-2'}}) }}
+            {{ form_widget(form.trailer, {'attr': {'class': 'w-full px-3 py-2 border rounded-lg bg-admin-semibg text-admin-text border-admin-primary'}}) }}
+        </div>
+        <div class="mb-4">
+            {{ form_label(form.categorie, null, {'label_attr': {'class': 'block text-admin-text text-sm font-bold mb-2'}}) }}
+            {{ form_widget(form.categorie, {'attr': {'class': 'w-full px-3 py-2 border rounded-lg bg-admin-semibg text-admin-text border-admin-primary'}}) }}
+        </div>
+        <button type="submit" class="bg-admin-primary hover:bg-admin-accent text-white font-medium py-2 px-4 rounded-lg">
+            {{ button_label|default('Save') }}
+        </button>
+    {{ form_end(form) }}
+</div>

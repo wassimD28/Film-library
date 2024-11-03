@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello UserController!{% endblock %}
+
+{% block body %}
+    {{ include("inc/user/navbar.html.twig") }}
+    <div class="flex h-screen w-screen flex-row items-start justify-center gap-x-[15px] bg-myColor-bg">
+        <section class="absolute right-5 pt-[70px]">
+            {{ include("inc/user/filter.html.twig") }}
+            <div class="flex w-[1020px] flex-col items-start justify-center mt-[-10px] overflow-x-hidden">
+                <div id="cardsContainer" class="my-3 flex w-full flex-row flex-wrap justify-start gap-[8px]">
+                    {% for film in films %}
+                        {{ include("inc/user/card.html.twig") }}
+                    {% endfor %}
+                </div>
+            </div>
+        </section>
+    </div>
+{% endblock %}

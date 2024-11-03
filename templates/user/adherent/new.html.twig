@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Adherent{% endblock %}
+
+{% block body %}
+<section class="bg-gray-900 text-gray-100 min-h-screen p-6">
+    <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
+        <div class="w-full bg-gray-800 rounded-lg shadow md:mt-0 sm:max-w-md xl:p-0">
+            <div class="p-6 space-y-4 md:space-y-6 sm:p-8 mt-10">
+                <h1 class="text-4xl font-bold mb-8 text-myColor-text">New Adherent</h1>
+                {{ form_start(form, {'class': 'space-y-4 md:space-y-6'}) }}
+                    <div>
+                        {{ form_label(form.nom, null, {'label_attr': {'class': 'block text-sm font-bold text-myColor-text mb-2'}}) }}
+                        {{ form_widget(form.nom, {'attr': {'class': 'w-full px-3 py-2 border rounded-lg bg-myColor-semibg text-myColor-text border-myColor-semibg2'}}) }}
+                    </div>
+                    <div>
+                        {{ form_label(form.prenom, null, {'label_attr': {'class': 'block text-sm font-bold text-myColor-text mb-2'}}) }}
+                        {{ form_widget(form.prenom, {'attr': {'class': 'w-full px-3 py-2 border rounded-lg bg-myColor-semibg text-myColor-text border-myColor-semibg2'}}) }}
+                    </div>
+                    <div>
+                        {{ form_label(form.dateNaiss, null, {'label_attr': {'class': 'block text-sm font-bold text-myColor-text mb-2'}}) }}
+                        {{ form_widget(form.dateNaiss, {'attr': {'class': 'w-full px-3 py-2 border rounded-lg bg-myColor-semibg text-myColor-text border-myColor-semibg2'}}) }}
+                    </div>
+                    <div>
+                        {{ form_label(form.sexe, null, {'label_attr': {'class': 'block text-sm font-bold text-myColor-text mb-2'}}) }}
+                        {{ form_widget(form.sexe, {'attr': {'class': 'w-full px-3 py-2 border rounded-lg bg-myColor-semibg text-myColor-text border-myColor-semibg2'}}) }}
+                    </div>
+                    <div>
+                        {{ form_label(form.cin, null, {'label_attr': {'class': 'block text-sm font-bold text-myColor-text mb-2'}}) }}
+                        {{ form_widget(form.cin, {'attr': {'class': 'w-full px-3 py-2 border rounded-lg bg-myColor-semibg text-myColor-text border-myColor-semibg2'}}) }}
+                    </div>
+                    <div>
+                        {{ form_label(form.tel, null, {'label_attr': {'class': 'block text-sm font-bold text-myColor-text mb-2'}}) }}
+                        {{ form_widget(form.tel, {'attr': {'class': 'w-full px-3 py-2 border rounded-lg bg-myColor-semibg text-myColor-text border-myColor-semibg2'}}) }}
+                    </div>
+                    <div>
+                        {{ form_label(form.adresse, null, {'label_attr': {'class': 'block text-sm font-bold text-myColor-text mb-2'}}) }}
+                        {{ form_widget(form.adresse, {'attr': {'class': 'w-full px-3 py-2 border rounded-lg bg-myColor-semibg text-myColor-text border-myColor-semibg2'}}) }}
+                    </div>
+                    <button class="w-full mt-2 text-myColor-text bg-myColor-secondary hover:bg-myColor-accent focus:ring-4 focus:outline-none focus:ring-primary-300 hover:text-myColor-semibg2 ease-in-out duration-200 font-bold py-2 px-4 rounded-lg text-sm">
+                        Save
+                    </button>
+                {{ form_end(form) }}
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+

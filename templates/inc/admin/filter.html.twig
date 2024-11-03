@@ -1,0 +1,12 @@
+
+<div class="flex w-[300px] flex-col rounded-md bg-admin-semibg fixed left-2">
+    {% for item in menuItems %}
+        <a
+            href="{{ item.href }}"
+            class="flex cursor-pointer flex-row gap-3 rounded-md border-b-admin-primary px-3 py-2 duration-100 ease-in-out hover:ml-3 hover:bg-admin-semibg2"
+        >
+            <i class="w-5 text-base text-admin-text {{ item.icon }}"></i>
+            <h3 class="text-myColor-text">{{ item.title }}</h3>
+        </a>
+    {% endfor %}
+</div>
